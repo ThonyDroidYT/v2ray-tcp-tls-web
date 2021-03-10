@@ -692,7 +692,8 @@ show_menu() {
   else
   echo "3) Instalar trojan-go"
   fi
-  echo "4) Salir"
+  echo "4) Remover Script"
+  echo "5) Salir "
   echo ""
 }
 
@@ -712,6 +713,7 @@ menu() {
       "2") get_xray && continue_prompt ;;
       "3") get_trojan && continue_prompt ;;
       "4") rm_xwall ;;
+      "0") exit 0;;
       *) break ;;
     esac
   done
