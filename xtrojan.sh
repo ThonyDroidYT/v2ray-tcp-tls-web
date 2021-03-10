@@ -687,20 +687,12 @@ rm_xwall() {
 show_menu() {
   echo ""
   if [ -f "/usr/local/bin/xray" ]; then
-  echo "----------Gestión de nombres de dominio----------"
-  echo "1) Reparar certificado/Cambiar nombre de dominio"
-  echo "2) Node Cloudflare personalizado"
-  echo "----------Configuración de pantalla---------"
-  echo "3) Mostrar enlace "
-  echo "----------Gestión de actualizaciones----------"
-  echo "4) Actualizar xray-core"
-  echo "5) Actualizar trojan-go"
-  echo "----------Desinstalar secuencia de comandos----------"
-  echo "6) Desinstale el script y todos los componentes "
+  echo "1) Mostrar enlace "
+  echo "2) Actualizar xray-core"
   else
-  echo "0) Instalar VLESS + Trojan "
+  echo "3) Instalar trojan-go"
   fi
-  echo "7) Salir"
+  echo "4) Salir"
   echo ""
 }
 
@@ -714,15 +706,12 @@ menu() {
 
   while true; do
     show_menu
-    read -rp "Seleccionar Opción [1-7]: 》 " opt
+    read -rp "Seleccionar Opción [1-4]: 》 " opt
     case "${opt}" in
-      "0") install_xray && continue_prompt ;;
-      "1") fix_cert && continue_prompt ;;
-      "2") edit_cf_node && continue_prompt ;;
-      "3") show_links && continue_prompt ;;
-      "4") get_xray && continue_prompt ;;
-      "5") get_trojan && continue_prompt ;;
-      "6") rm_xwall ;;
+      "1") show_links && continue_prompt ;;
+      "2") get_xray && continue_prompt ;;
+      "3") get_trojan && continue_prompt ;;
+      "4") rm_xwall ;;
       *) break ;;
     esac
   done
