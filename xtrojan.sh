@@ -36,6 +36,13 @@ colorEcho(){
   # copied from v2ray official script
   echo -e "${colorStart}${1}${@:2}${colorEnd}" 1>& 2
 }
+conf_trojan () {
+echo -e "\e[1;33mContraseña  \e[0m"
+read -p "Pass: 》 " uuid2
+echo -e "\e[1;33mSNI/HostIP  \e[0m"
+read -p "SNI: 》 " V2_DOMAIN2
+set_trojan "${uuid2}" "${path}tj" "${V2_DOMAIN2}"
+}
 
 colorEchoFlush(){
   echo -ne "${colorStart}${1}${@:2}${colorEnd}\r" 1>& 2
