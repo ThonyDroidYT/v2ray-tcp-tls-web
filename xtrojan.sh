@@ -713,7 +713,7 @@ menu() {
       "2") get_xray && continue_prompt ;;
       "3") get_trojan && continue_prompt ;;
       "4") rm_xwall ;;
-      "0") exit 0;;
+      "5") exit 0;;
       *) break ;;
     esac
   done
