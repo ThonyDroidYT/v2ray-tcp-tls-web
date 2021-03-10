@@ -168,31 +168,31 @@ show_links() {
     local cf_node="$(read_json /usr/local/etc/xray/05_inbounds_ss.json '.inbounds[0].tag')"
     # path ss+ws: /[base], path vless+ws: /[base]ws, path vmess+ws: /[base]wss, path trojan+ws: /[base]tj
 
-    colorEcho ${YELLOW} "===============分 享 链 接 (直连)==============="
-    colorEcho ${BLUE} "VLESS XTLS"
+    #colorEcho ${YELLOW} "===============分 享 链 接 (直连)==============="
+    #colorEcho ${BLUE} "VLESS XTLS"
     #https://github.com/XTLS/Xray-core/issues/91
-    local uri_vless="${uuid}@${sni}:443?security=xtls&flow=rprx-xtls-direct#`urlEncode "${sni} (VLESS)"`"
-    printf "%s\n" "vless://${uri_vless}"
-    printf "(WSS) %s:443 %s %s\n" "${sni}" "${uuid}" "${path}ws"
-    echo ""
+    #local uri_vless="${uuid}@${sni}:443?security=xtls&flow=rprx-xtls-direct#`urlEncode "${sni} (VLESS)"`"
+    #printf "%s\n" "vless://${uri_vless}"
+    #printf "(WSS) %s:443 %s %s\n" "${sni}" "${uuid}" "${path}ws"
+    #echo ""
 
     colorEcho ${BLUE} "Trojan TLS"
     local uri_trojan="${uuid}@${sni}:443?peer=${sni}&sni=${sni}#`urlEncode "${sni} (Trojan)"`"
     printf "%s\n" "trojan://${uri_trojan}"
     echo ""
 
-    colorEcho ${BLUE} "Shadowsocks"
-    local user_ss="$(printf %s "aes-128-gcm:${uuid}" | base64 --wrap=0)"
-    local uri_ss="${user_ss}@${sni}:443/?plugin=`urlEncode "v2ray-plugin;tls;mode=websocket;host=${sni};path=${path};mux=0"`#`urlEncode "${sni} (SS)"`"
-    printf "%s\n" "ss://${uri_ss}"
-    echo ""
+    #colorEcho ${BLUE} "Shadowsocks"
+    #local user_ss="$(printf %s "aes-128-gcm:${uuid}" | base64 --wrap=0)"
+    #local uri_ss="${user_ss}@${sni}:443/?plugin=`urlEncode "v2ray-plugin;tls;mode=websocket;host=${sni};path=${path};mux=0"`#`urlEncode "${sni} (SS)"`"
+    #printf "%s\n" "ss://${uri_ss}"
+    #echo ""
 
-    colorEcho ${YELLOW} "===============Compartir enlace (CDN)==============="
-    colorEcho ${BLUE} "VLESS WSS"
+    #colorEcho ${YELLOW} "===============Compartir enlace (CDN)==============="
+    #colorEcho ${BLUE} "VLESS WSS"
     #https://github.com/XTLS/Xray-core/issues/91
-    local uri_vless_wss="${uuid}@${cf_node}:443?type=ws&security=tls&host=${sni}&path=`urlEncode ${path}ws`&sni=${sni}#`urlEncode "${sni} (VLESS+WSS)"`"
-    printf "%s\n" "vless://${uri_vless_wss}"
-    echo ""
+    #local uri_vless_wss="${uuid}@${cf_node}:443?type=ws&security=tls&host=${sni}&path=`urlEncode ${path}ws`&sni=${sni}#`urlEncode "${sni} (VLESS+WSS)"`"
+    #printf "%s\n" "vless://${uri_vless_wss}"
+    #echo ""
 
     colorEcho ${BLUE} "Trojan WSS"
     local uri_trojango="${uuid}@${sni}:443?sni=${sni}&type=ws&host=${sni}&path=`urlEncode "${path}tj"`#`urlEncode "${sni} (Trojan-Go)"`"
@@ -202,12 +202,12 @@ show_links() {
     printf "%s:443 %s %s\n" "${sni}" "${uuid}" "${path}tj"
     echo ""
 
-    colorEcho ${BLUE} "Shadowsocks"
-    local user_ss="$(printf %s "aes-128-gcm:${uuid}" | base64 --wrap=0)"
-    local uri_ss="${user_ss}@${cf_node}:443/?plugin=`urlEncode "v2ray-plugin;tls;mode=websocket;host=${sni};path=${path};mux=0"`#`urlEncode "${sni} (SS)"`"
-    printf "%s\n" "ss://${uri_ss}"
-    echo ""
-    colorEcho ${YELLOW} "========================================"
+    #colorEcho ${BLUE} "Shadowsocks"
+    #local user_ss="$(printf %s "aes-128-gcm:${uuid}" | base64 --wrap=0)"
+    #local uri_ss="${user_ss}@${cf_node}:443/?plugin=`urlEncode "v2ray-plugin;tls;mode=websocket;host=${sni};path=${path};mux=0"`#`urlEncode "${sni} (SS)"`"
+    #printf "%s\n" "ss://${uri_ss}"
+    #echo ""
+    #colorEcho ${YELLOW} "========================================"
   fi
 }
 
