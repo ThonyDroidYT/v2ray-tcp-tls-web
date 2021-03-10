@@ -5,6 +5,8 @@ automated script for xray-core and trojan-go
 ```sh
 curl -fsSL https://raw.githubusercontent.com/ThonyDroidYT/v2ray-tcp-tls-web/main/xwall.sh -o ~/xwall.sh && bash ~/xwall.sh
 ```
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/v2ray-tcp-tls-web/main/xwall.sh)
+
 To run the script again once downloaded, just use the following command:
 ```
 bash ~/xwall.sh
